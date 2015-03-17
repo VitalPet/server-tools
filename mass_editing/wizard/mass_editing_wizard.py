@@ -69,8 +69,8 @@ class mass_editing_wizard(orm.TransientModel):
                     etree.SubElement(xml_group, 'field', {
                         'name': field.name, 'colspan': '4', 'nolabel': '1',
                         'attrs': (
-                            "{'invisible':[('selection__"
-                            + field.name + "','=','remove_m2m')]}")})
+                            "{'invisible':[('selection__" +
+                            field.name + "','=','remove_m2m')]}")})
                 elif field.ttype == "one2many":
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
@@ -84,8 +84,8 @@ class mass_editing_wizard(orm.TransientModel):
                     etree.SubElement(xml_group, 'field', {
                         'name': field.name, 'colspan': '4', 'nolabel': '1',
                         'attrs': (
-                            "{'invisible':[('selection__"
-                            + field.name + "','=','remove_o2m')]}")})
+                            "{'invisible':[('selection__" +
+                            field.name + "','=','remove_o2m')]}")})
                 elif field.ttype == "many2one":
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
@@ -99,8 +99,8 @@ class mass_editing_wizard(orm.TransientModel):
                     etree.SubElement(xml_group, 'field', {
                         'name': field.name, 'nolabel': '1', 'colspan': '2',
                         'attrs': (
-                            "{'invisible':[('selection__"
-                            + field.name + "','=','remove')]}")})
+                            "{'invisible':[('selection__" +
+                            field.name + "','=','remove')]}")})
                 elif field.ttype == "char":
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
@@ -111,13 +111,12 @@ class mass_editing_wizard(orm.TransientModel):
                         'size': field.size or 256}
                     etree.SubElement(xml_group, 'field', {
                         'name': "selection__" + field.name,
-                        'colspan': '2',
                         'colspan': '2'})
                     etree.SubElement(xml_group, 'field', {
                         'name': field.name, 'nolabel': '1',
                         'attrs': (
-                            "{'invisible':[('selection__"
-                            + field.name + "','=','remove')]}"),
+                            "{'invisible':[('selection__" +
+                            field.name + "','=','remove')]}"),
                         'colspan': '2'})
                 elif field.ttype == 'selection':
                     all_fields["selection__" + field.name] = {
@@ -129,8 +128,8 @@ class mass_editing_wizard(orm.TransientModel):
                     etree.SubElement(xml_group, 'field', {
                         'name': field.name, 'nolabel': '1', 'colspan': '2',
                         'attrs': (
-                            "{'invisible':[('selection__"
-                            + field.name + "','=','remove')]}")})
+                            "{'invisible':[('selection__" +
+                            field.name + "','=','remove')]}")})
                     all_fields[field.name] = {
                         'type': field.ttype,
                         'string': field.field_description,
@@ -154,8 +153,8 @@ class mass_editing_wizard(orm.TransientModel):
                         etree.SubElement(xml_group, 'field', {
                             'name': field.name, 'colspan': '4', 'nolabel': '1',
                             'attrs': (
-                                "{'invisible':[('selection__"
-                                + field.name + "','=','remove')]}")})
+                                "{'invisible':[('selection__" +
+                                field.name + "','=','remove')]}")})
                     else:
                         all_fields["selection__" + field.name] = {
                             'type': 'selection',
@@ -168,8 +167,8 @@ class mass_editing_wizard(orm.TransientModel):
                         etree.SubElement(xml_group, 'field', {
                             'name': field.name, 'nolabel': '1',
                             'attrs': (
-                                "{'invisible':[('selection__"
-                                + field.name + "','=','remove')]}"),
+                                "{'invisible':[('selection__" +
+                                field.name + "','=','remove')]}"),
                             'colspan': '2', })
             etree.SubElement(
                 xml_form, 'separator', {'string': '', 'colspan': '4'})

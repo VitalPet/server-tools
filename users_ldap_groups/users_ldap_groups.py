@@ -19,10 +19,12 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
 import logging
-import users_ldap_groups_operators
 import inspect
+
+from openerp.osv import fields, orm
+
+from . import users_ldap_groups_operators
 
 
 class CompanyLDAPGroupMapping(orm.Model):
@@ -34,8 +36,8 @@ class CompanyLDAPGroupMapping(orm.Model):
         operators = []
         members = inspect.getmembers(
             users_ldap_groups_operators,
-            lambda cls: inspect.isclass(cls)
-            and cls != users_ldap_groups_operators.LDAPOperator)
+            lambda cls: (inspect.isclass(cls) and
+                         cls != users_ldap_groups_operators.LDAPOperator))
         for name, operator in members:
             operators.append((name, name))
         return tuple(operators)
