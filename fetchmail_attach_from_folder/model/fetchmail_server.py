@@ -25,6 +25,7 @@ import simplejson
 from lxml import etree
 from openerp import models, fields, api, exceptions
 from openerp.tools.translate import _
+from openerp.tools.safe_eval import safe_eval
 from openerp.tools.misc import UnquoteEvalContext
 _logger = logging.getLogger(__name__)
 
@@ -33,7 +34,8 @@ class fetchmail_server(models.Model):
     _inherit = 'fetchmail.server'
 
     folder_ids = fields.One2many(
-        'fetchmail.server.folder', 'server_id', 'Folders')
+        'fetchmail.server.folder', 'server_id', 'Folders',
+        context={'active_test': False})
     object_id = fields.Many2one(required=False)
 
     _defaults = {
@@ -67,7 +69,7 @@ class fetchmail_server(models.Model):
                 })
 
             connection = this.connect()
-            for folder in this.folder_ids:
+            for folder in this.folder_ids.filtered('active'):
                 this.handle_folder(connection, folder)
             connection.close()
 
@@ -216,7 +218,7 @@ class fetchmail_server(models.Model):
             this.write({'state': 'draft'})
             connection = this.connect()
             connection.select()
-            for folder in this.folder_ids:
+            for folder in this.folder_ids.filtered('active'):
                 if connection.select(folder.path)[0] != 'OK':
                     raise exceptions.ValidationError(
                         _('Mailbox %s not found!') % folder.path)
@@ -252,7 +254,7 @@ class fetchmail_server(models.Model):
                 if field.tag == 'field' and field.get('name') in modifiers:
                     field.set('modifiers', simplejson.dumps(
                         dict(
-                            eval(field.attrib['modifiers'],
+                            safe_eval(field.attrib['modifiers'],
                                  UnquoteEvalContext({})),
                             **modifiers[field.attrib['name']])))
                 if (field.tag == 'field' and
