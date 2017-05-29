@@ -20,6 +20,7 @@ addon | version | summary
 --- | --- | ---
 [auditlog](auditlog/) | 10.0.1.0.0 | Audit Log
 [auth_signup_verify_email](auth_signup_verify_email/) | 10.0.1.0.0 | Force uninvited users to use a good email for signup
+[auth_user_case_insensitive](auth_user_case_insensitive/) | 10.0.1.0.0 | Makes the user login field case insensitive
 [auto_backup](auto_backup/) | 10.0.1.0.2 | Backups database
 [base_exception](base_exception/) | 10.0.1.0.0 | This module provide an abstract model to manage customizable exceptions to be applied on different models (sale order, invoice, ...)
 [base_external_dbsource](base_external_dbsource/) | 10.0.2.0.0 | External Database Sources
@@ -38,6 +39,7 @@ addon | version | summary
 [base_technical_features](base_technical_features/) | 10.0.1.0.0 | Access to technical features without activating debug mode
 [base_user_gravatar](base_user_gravatar/) | 10.0.1.0.0 | Synchronize Gravatar Image
 [base_user_role](base_user_role/) | 10.0.1.0.0 | User roles
+[configuration_helper](configuration_helper/) | 10.0.1.0.0 | Configuration Helper
 [date_range](date_range/) | 10.0.1.0.0 | Manage all kind of date range
 [dbfilter_from_header](dbfilter_from_header/) | 10.0.1.0.0 | Filter databases with HTTP headers
 [disable_odoo_online](disable_odoo_online/) | 10.0.1.0.0 | Remove odoo.com Bindings
@@ -50,6 +52,7 @@ addon | version | summary
 [scheduler_error_mailer](scheduler_error_mailer/) | 10.0.1.0.0 | Scheduler Error Mailer
 [server_environment](server_environment/) | 10.0.1.2.0 | move some configurations out of the database
 [server_environment_files_sample](server_environment_files_sample/) | 10.0.1.0.0 | sample config file for server_environment
+[user_immutable](user_immutable/) | 10.0.1.0.0 | Add Immutable User Support
 [users_ldap_mail](users_ldap_mail/) | 10.0.1.0.0 | LDAP mapping for user name and e-mail
 [users_ldap_populate](users_ldap_populate/) | 10.0.1.0.0 | LDAP Populate
 
@@ -71,7 +74,6 @@ addon | version | summary
 [base_debug4all](base_debug4all/) | 8.0.1.0.0 (unported) | Shows full debug options for all users
 [base_export_manager](base_export_manager/) | 9.0.1.1.0 (unported) | Manage model export profiles
 [base_report_auto_create_qweb](base_report_auto_create_qweb/) | 9.0.1.0.0 (unported) | Report qweb auto generation
-[configuration_helper](configuration_helper/) | 9.0.1.0.0 (unported) | Configuration Helper
 [database_cleanup](database_cleanup/) | 9.0.1.0.0 (unported) | Database cleanup
 [dead_mans_switch_client](dead_mans_switch_client/) | 9.0.1.0.1 (unported) | Be notified when customers' odoo instances go down
 [email_template_template](email_template_template/) | 1.0 (unported) | Templates for email templates
